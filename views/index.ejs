@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Node js Web Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/tailwind.css">
+</head>
+<body>
+	<header class="border-b  p-6 text-center bg-gray-100 flex justify-between item-center">
+        <a href="/" class="font-extrabold text-4lg hover:no-underline hover:text-black">My Node Js Web Application</a>
+	</header>
+	
+	<div class="container p-5">
+		<div id="countChar" class="mb-4 border-solid border-4 border-gray-600 p-5">
+			<form method="POST" action="/checkOccurance" onsubmit="return checkString()">
+				<label class="form-label block text-gray-700 text-sm font-bold mb-2 text-4xl">
+					String to Count Characters Occurance
+				</label>
+				<input type="text" class="form-label shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5" id="charTextBox" name="character" placeholder="Enter String here..."/>
+				<div class="flex justify-between pb-3">
+					<input type="submit" value="Find" class="btn btn-primary" />
+					<p id="occuranceError" class="error text-red-600 text-2xl"></p>
+				</div>
+			</form>
+		</div>
+		<div id="checkPerfectNumber" class="mb-4 border-solid border-4 border-gray-600 p-5">
+			<form method="POST" action="/checkPerfectNumber" onsubmit="return checkNumber()">
+				<label class="form-label block text-gray-700 text-sm font-bold mb-2 text-4xl">
+					Find Number is Perfect or Not
+				</label>
+				<input type="number" class="form-label shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5" id="perfectNumber" name="number" placeholder="Enter Number here..." />
+				<div class="flex justify-between pb-3">
+					<input type="submit" value="Check" class="btn btn-primary" />
+					<p id="perfectError" class="error text-red-600 text-2xl"></p>
+				</div>
+			</form>
+		</div>
+
+		<div id="convertRoman" class="mb-4 border-solid border-4 border-gray-600 p-5">
+			<form method="POST" action="/convartToRoman" onsubmit="return checkRomanNumber()">
+				<label class="form-label block text-gray-700 text-sm font-bold mb-2 text-4xl">
+					Convert Number to into Roman
+				</label>
+				<input type="number" class="form-label shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5" id="inttoroman" name="romanNumber" placeholder="Enter Number here..." />
+				<div class="flex justify-between pb-3">
+					<input type="submit" value="Calculate" class="btn btn-primary" />
+					<p id="romanError" class="error text-red-600 text-2xl"></p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<footer class="font-bold mt-10 bottom-0 bg-gray-300 text-center  p-3 w-full">
+		&copy; Sumit Borse 2020
+	</footer>
+
+	<script>
+		function checkString(){
+			var str=document.getElementById('charTextBox').value;
+
+			if(str=="")
+			{
+				document.getElementById('occuranceError').innerHTML="Enter String to Calculate Occurance";
+				document.getElementById('charTextBox').focus();
+				return false;
+			}
+			return true;
+		}
+
+		function checkNumber(){
+			var str=document.getElementById('perfectNumber').value;
+			if(str=="")
+			{
+				document.getElementById('perfectError').innerHTML="Enter Number to Check Weather it is Perfect or Not";
+				document.getElementById('perfectNumber').focus();
+				return false;
+			}
+			return true;
+		}
+
+		function checkRomanNumber(){
+			var str=document.getElementById('inttoroman').value;
+			if(str=="")
+			{
+				document.getElementById('romanError').innerHTML="Enter Number to Check Weather it is Perfect or Not";
+				document.getElementById('inttoroman').focus();
+				return false;
+			}
+			return true;
+		}
+
+	</script>
+
+</body>
+</html>
